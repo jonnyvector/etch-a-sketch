@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+}
+
+.logo {
+  width: 40px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-container button {
+  width: 240px;
+  height: 48px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
