@@ -1,6 +1,13 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
+const clearGridButton = document.querySelector("#clear-grid");
 let gridNumber = 0;
+
+const clearGrid = () => {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+};
 
 const gridCreator = (num) => {
   let width = (960 - gridNumber * 2) / gridNumber;
@@ -18,7 +25,20 @@ const gridCreator = (num) => {
   }
 };
 
+clearGridButton.addEventListener("click", function () {
+  clearGrid();
+});
+
 button.addEventListener("click", function () {
-  gridNumber = prompt("how many squares would you like?");
-  gridCreator(gridNumber * gridNumber);
+  const userInput = prompt(
+    "What dimension grid would you like to set? Enter a number between 1 and 100."
+  );
+  gridNumber = parseInt(userInput);
+
+  if (!Number.isNaN(gridNumber) && gridNumber >= 1 && gridNumber <= 100) {
+    clearGrid();
+    gridCreator(gridNumber * gridNumber);
+  } else {
+    alert("Please enter a valid number between 1 and 100");
+  }
 });
