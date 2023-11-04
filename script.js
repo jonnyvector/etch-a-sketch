@@ -3,6 +3,18 @@ const button = document.querySelector("button");
 const clearGridButton = document.querySelector("#clear-grid");
 let gridNumber = 0;
 
+const colors = [
+  "#ff2cdf",
+  "#0014ff",
+  "#00e1fd",
+  "#fc007a",
+  "#00ff5b",
+  "#0014ff",
+  "#ffe53b",
+  "#ff005b",
+  "#00ffff",
+];
+
 const clearGrid = () => {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
@@ -18,7 +30,7 @@ const gridCreator = (num) => {
     div.style.width = `${width}px`;
     div.style.height = `${height}px`;
     div.addEventListener("mouseenter", () => {
-      div.style.backgroundColor = "blue";
+      div.style.backgroundColor = colors[Math.floor(Math.random() * 9)];
     });
 
     container.appendChild(div);
